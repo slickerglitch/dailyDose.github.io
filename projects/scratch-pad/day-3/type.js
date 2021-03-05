@@ -14,10 +14,7 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return Array.isArray(value); 
     // YOUR CODE ABOVE HERE //
 }
 
@@ -31,10 +28,7 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return Object.prototype.toString.call(value) === '[object Object]' ? true : false; 
     // YOUR CODE ABOVE HERE //
 }
 
@@ -46,7 +40,8 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    return  Object.prototype.toString.call(value) === '[object Object]' ||
+            Array.isArray(value) ? true : false; 
     
     
     

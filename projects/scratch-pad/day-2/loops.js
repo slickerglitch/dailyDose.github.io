@@ -88,8 +88,9 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  for (var key in object) { 
+    console.log(object[key]); // object[key] refers to the value on the k:vPr
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -101,8 +102,13 @@ function printObjectValues(object) {
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
   
-  
-  
+  let oblong = [];
+  console.log(oblong); 
+  for (var key in object) {
+    oblong.push(key + ' : ' + object[key]);
+  }
+  console.log(oblong); 
+  return oblong.length; 
   
   // YOUR CODE ABOVE HERE //
 }
@@ -114,8 +120,16 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-  
-  
+  let valArr = [];
+  //console.log(valArr.length, valArr); 
+  for (var key in object) { 
+    valArr.push(object[key]);
+  }
+  //console.log(valArr.length, valArr); 
+  for (let i = valArr.length - 1; i >= 0; i--) { 
+   // console.log(i, ':', valArr[i]);
+   console.log(valArr[i]);
+  }
   
   // YOUR CODE ABOVE HERE //
 }

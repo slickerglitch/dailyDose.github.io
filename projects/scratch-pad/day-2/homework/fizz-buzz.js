@@ -11,9 +11,31 @@
  *  d. FINALLY, for numbers which are multiples of both three and five print “FizzBuzz”.
 */
 function fizzBuzz() {
-    // YOUR CODE GOES BELOW HERE //
+    // YOUR CODE GOES BELOW HERE /
+    
+    //let value = [];
+    let start = 0; 
+    let end = 100;
+    
+    while (start < end) { 
+        start += 1; 
+       // value.push(start += 1); 
+        
+        if (start % 3 === 0 && start % 5 === 0) { 
+            console.log('FizzBuzz');
+        } 
+        else if (start % 3 === 0) { 
+            console.log('Fizz');
+            
+        }
+        else if (start % 5 === 0) { 
+            console.log('Buzz');
+            
+        } else { 
+            console.log(start); 
+    }
 
-
+  }
 
     // YOUR CODE GOES ABOVE HERE //
 }
