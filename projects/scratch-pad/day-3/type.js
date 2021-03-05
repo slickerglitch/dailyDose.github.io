@@ -40,7 +40,7 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    return  Object.prototype.toString.call(value) === '[object Object]' ||
+    return Object.prototype.toString.call(value) === '[object Object]' ||
             Array.isArray(value) ? true : false; 
     
     
