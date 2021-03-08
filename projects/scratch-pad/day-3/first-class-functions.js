@@ -11,14 +11,21 @@
  * return a Function that tests whether a given value is greater than the 
  * base.
  */
+ 
+ /**
+  * IOCE:
+  * I - a String or Number value
+  * O - a Function (?)
+  * C - 
+  * E-
+ */  
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    return function(value) {
-        if (value > base) {
-            return true;
-        } else { 
-            return false;
-    }
+    
+    return function(value) { 
+       return  value > base ? true : false; 
+    };
+    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -30,8 +37,9 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    return function(value) {
+        return value < base ? true : false; 
+    };
     
     // YOUR CODE ABOVE HERE //
 }
@@ -43,10 +51,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return function(string) {
+       return  startsWith.toLowerCase() === string[0].toLowerCase() ? true : false; 
+        };
     // YOUR CODE ABOVE HERE //
 }
 
@@ -57,10 +64,9 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return function(string) {
+        return endsWith.toLowerCase() === string[string.length - 1].toLowerCase() ? true : false;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -71,14 +77,32 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
+const qContinuum = ['quick', 'quirky', 'quartz'];
+/**
+ * const qContinuum created in case I needed to change specific values,
+ * * in this case I would have changed 'q' to '!'
+*/ 
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
+    const newArray = [];
     
+    for (let i = 0; i < strings.length; i ++) {
+      newArray.push(modify(strings[i]));
+    }
     
+    return newArray;//.join(', ');
     
     // YOUR CODE ABOVE HERE //
 }
+/*
+var mod2 = function(input) {
+  return input.split('').join('*');
+};
+*/  
+// Fxn Call:
+// modifyStrings(qContinuum, mod2); 
+    //Returns > q*u*i*c*k q*u*i*r*k*y q*u*a*r*t*z
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -89,13 +113,16 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
+
+ function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    for (var i =0; i <= strings.length - 1; i++) {
+        if(test(strings[i]) === false) {
+            return false;
+        } 
+    } 
+    return true;
+ // YOUR CODE ABOVE HERE //
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

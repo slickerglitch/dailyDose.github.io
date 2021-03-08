@@ -70,9 +70,22 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+  if (Array.isArray(value)) { 
+    return 'array';
+
+  } else if (typeof value === 'object') { 
+    return Object.prototype.toString.call(value) === '[object Object]' ? 'object'
+         : Object.prototype.toString.call(value) === '[object Date]' ? 'date' 
+         : 'null';
+         
+  } else if (typeof value === 'number' && value !== value) {
+      console.log('Not-a-Number'); 
+      return typeof value;
+      
+    } else { 
+        return typeof value; 
+  }
+
     // YOUR CODE ABOVE HERE //
 }
 
