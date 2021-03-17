@@ -34,32 +34,63 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
 
+function makeContact(id, nameFirst, nameLast) {
+    var contact = { "id": id, "nameFirst": nameFirst, "nameLast": nameLast};
+    return contact;
 } 
 
 
 function makeContactList() {
-    /*
-     * You need something here to hold contacts. See length api for a hint:
-     */
-    var contacts;
-    
-    return {
+/**
+ * You need something here to hold contacts. See length api for a hint:
+*/
+    const contacts= [];
+    // The contacts array is a collection device for our contact list 
+    // MASSIVE return statement!
+    return  {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        
+        addContact: function(contact) {
+            var newContact = contact;
+            contacts.push(newContact);
+        },
+        
+        removeContact: function(contact) {
+            var index = contacts.indexOf(contact);
+            contacts.splice(index,1);
+        },
+        
+        printAllContactNames: function() {
+          var contactNames = '';
+          
+          for (var i = 0; i <= contacts.length - 1; i++) {
+         //Create a new line, except after the last contact in list
+          contactNames += contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+          console.log(contactNames[i]);
+          contactNames += '\n';
+          }
+            
+        return contactNames.slice(0, contactNames.length - 1);
+        
+        },
+
+        
+        findContact: function(fullName) {
+            var testName;
+            
+            for (var i =0; i < contacts.length; i++) {
+                testName = contacts[i].nameFirst + " " + contacts[i].nameLast;
+                if (fullName === testName) {
+                    return contacts[i];
+                }
+            }
         }
-    }
+    };
 }
-
-
-
-
-// YOUR CODE GOES ABOVE HERE //
-
-
-
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

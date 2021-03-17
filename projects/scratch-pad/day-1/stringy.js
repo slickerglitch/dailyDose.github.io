@@ -166,15 +166,16 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    
     // B/c chars have set Unicode values, we have to render input case insensitive,
         // as A !== a per Unicode value.
-        return stringOne.toLowerCase() === stringTwo.toLowerCase() ? 0 : 
-        stringOne.toLowerCase() > stringTwo.toLowerCase() ? -1 : 1;
-        
-        // I used a double Ternary statement in the return. 
-            // Working as intended.
-
+        if (stringOne.toLowerCase() === stringTwo.toLowerCase()) { 
+            return 0;
+        } 
+        else if (stringOne.toLowerCase() > stringTwo.toLowerCase()) {
+            return 1;
+        } else { 
+            return -1; 
+        }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -189,8 +190,11 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     
-    return  stringOne.toLowerCase() === stringTwo.toLowerCase() ? 0 : 
-            stringOne.toLowerCase() > stringTwo.toLowerCase() ? 1 : -1;
+    if (stringOne === stringTwo) { 
+        return 0;
+    }
+    
+    return stringOne.toLowerCase() > stringTwo.toLowerCase() ? -1 : 1;
 
     // YOUR CODE ABOVE HERE //
 }

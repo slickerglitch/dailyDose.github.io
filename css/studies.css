@@ -1,0 +1,108 @@
+ h1 {
+    color: #FFF8DC;
+    text-decoration: underline;  
+    }
+        
+    body {
+    background: rgb(46, 38, 36); 
+    color: #FFF8DC;
+    padding: 10px;
+    font-family: "Lucida Console", Monaco, monospace;
+    }
+
+    header {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    }
+[id=all-contents] {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* navigation menu */
+   nav {
+    background: rgb(46, 38, 36);  
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+    }
+nav header {
+    display: flex;
+    align-items: center;
+    color: rgb(240, 218, 66);
+    flex: 1;
+    }
+    
+    nav ul {
+    list-style-image: none;
+    }
+
+   nav li {
+    display: inline-block;
+    padding: 0 10px;
+    }
+    
+    nav a {
+    text-decoration: underline;
+    color: #FFF8DC; 
+    }
+
+/* main container area beneath menu */
+    main {
+    background: rgb(46, 38, 36);
+    display: flex;
+    }
+    
+
+[class=content] {
+    flex: 1;
+    border-radius:15px;
+    padding: 5px;
+    margin-top:15px;
+    box-sizing: border-box;
+    width: 107%;
+}
+
+.content h1, h2, h3, h4, h5, h6 {
+    margin: 5px;
+}
+
+.content section > a {
+    text-decoration: none;
+}
+
+.code {
+    font-family: monospace;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: rgb(46, 38, 36);;
+    white-space: normal;
+    width: 107%;
+    margin-bottom: 20px;
+    overflow: scroll;
+  
+}
+
+.topic-heading {
+    padding-left: 17px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.line {
+    display: flex;
+    padding: 2px 0;
+}
+
+.line:nth-child(even) {
+    background: #FCF9F1;
+}
+
+.line-number {
+    min-width: 40px;
+    padding-left: 1px;
+    text-align: center;
+    padding-right: 3px;
+}
