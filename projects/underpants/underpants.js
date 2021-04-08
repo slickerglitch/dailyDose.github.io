@@ -149,15 +149,13 @@ _.last = function (array, number) {
 _.indexOf = function (array, value) {
     //let countOccurrences = 0; 
     //let index = [];
-    
     for (let i = 0; i <= array.length - 1; i++) { 
         if (array[i] === value) { 
-         //countOccurrences += i;
-         return i;
+            //countOccurrences += i;
+            return i;
         }
      }
-        return -1; 
-     
+     return -1; 
     
     //return countOccurrences; 
     
@@ -376,27 +374,19 @@ _.partition = function(array, fxn) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */ 
-_.map = function(collection, func){
+_.map = function(collection, fxn){
     //declare and set an empty array
-    let arr = [];
+    let mapped = [];
     //each to loop through collection
-    _.each(collection, function(val, i, coll){
+    _.each(collection, function(element, index, collection){
         //call the func function on each value in the collection
-        let result = func(val, i, coll);
+        let result = fxn(element, index, collection);
         //put that value into the array
-        arr.push(result);
+        mapped.push(result);
     });
-    return arr;
+    return mapped;
 };
-/*
-function map(collection, iterator) {
-    var results = [];
-    each(collection, function(item, index, collection) {
-results.push(iterator(item, index, collection));
-});
-return results;
-}
-*/
+
 
 
 /** _.pluck
@@ -416,14 +406,10 @@ _.pluck = function (collection, prop) {
         _.each(obj, function(val, key, obj) {
             if (obj[prop] === val) {
                 plucked.push(val);
-                
             }
-            
         });
-        
     }
     return plucked;
-    
 };
 
 
@@ -448,7 +434,15 @@ _.pluck = function (collection, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 * 
 */
+_.every = function(collection, iterator) { 
 
+    iterator = iterator || _.identity;
+    return !! _.reduce(collection, function(a, b) {
+     return a && iterator(b);
+    }, true)
+}
+
+/*
 _.every = function(collection, func){
     let boolean = true;
     const fxn =  typeof func === "function";
@@ -462,14 +456,12 @@ _.every = function(collection, func){
       for(var key in collection){
           if(fxn ? !func(collection[key], key, collection) : !collection[key]){
               boolean = false;
-              
           }
-          
       }
-      
   }
   return boolean; 
 };
+*/ 
 /*
 _.every = function (collection, fxn) {
 
@@ -509,25 +501,40 @@ _.every = function (collection, fxn) {
 * Examples:
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
-*/
-_.some = function (collection, fxn) {
-    
-    
-    if (Array.isArray(collection)) {
-        
-    
-    let partitioned = [];
-    
-    let part1 = _.filter(collection, fxn); let part2 = _.reject(collection, fxn);
-    
-    partitioned.push(part1); partitioned.push(part2); 
-    
-    return partitioned; 
-    
-            }
-            
+*//*
 
+_.some = function (collection, fxn) {
+    if (Array.isArray(collection)) {
+    let partitioned = [];
+    let part1 = _.filter(collection, fxn); let part2 = _.reject(collection, fxn);
+    partitioned.push(part1); partitioned.push(part2); 
+    return partitioned;
+    }
 };
+*/ 
+
+_.some = function(collection, valChek) {
+    const array = [[],[]]; 
+        if (typeof valChek !== "function") {
+            _.each(collection, function(value, location, collection) { 
+            if (value) {
+                array[0].push(value);
+            } else { 
+                array[1].push(value);
+            } 
+        });
+    } else { 
+        _.each(collection, function(p1, p2, p3) {
+            if (valChek(p1, p2, p3)) {
+                array[0].push(p1); 
+            } else {
+                array[1].push(p1);
+            }
+        });
+    }
+    return array[0].length > 0 ? true : false;
+}
+
 /** _.reduce
 * Arguments:
 *   1) An array

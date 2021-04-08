@@ -227,13 +227,17 @@ console.log(formula);
 To access any specific information about a property of an 
 element on an array, we must use bracket notation, either alone 
 or in tandem with dot notation. 
+    
+In the `formula` array above, each element is contained at a specific 
+ordinal Index position on the Array. For Array indices, the first occupied 
+index value is i = 0. 
+
+To access the value stored on those specific indices, we can use Bracket No-
+tation, as shown in the console.log statements below: 
 */ 
-console.log(formula[0]); 
-// logs -> sugar
-console.log(formula[1]); 
-// logs -> spice
-console.log(formula[2]); 
-// logs -> everything nice 
+console.log(formula[0]); // logs -> sugar
+console.log(formula[1]); // logs -> spice
+console.log(formula[2]); // logs -> everything nice 
 console.log(formula[3]); 
 /* logs -> {
         radioactive: true,
@@ -254,6 +258,12 @@ console.log(formula.length - 2);
 // logs -> 2
 console.log(formula[formula.length - 2]); 
 // logs -> everything nice 
+// To access the Nth-to-Last character of an array, we can 
+    // use Bracket Notation as we usually would, except we
+    // replace the ordinal index number with an expression that
+    // evaluates to the Nth-to-Last character we want.
+    //  e.g.: array.length - 1 => the last defined ordinal value
+    //        array.length - 2 => the 2nd-to-Last defined ordinal value
 
 /**
     Objects (2)
